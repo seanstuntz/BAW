@@ -1,0 +1,15 @@
+Package: BAW
+Type: Package
+Title: Consolidated Biconductor Workflow Functions
+Version: 0.1.0
+Author: person("Sean", "Stuntz", email = "sean.stuntz@gmail.com")
+Maintainer: Sean Stuntz <sean.stuntz@gmail.com>
+Description: Compiles functions needed to produce a phyloseq object from raw amplicon sequences of the 16S gene. 
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Suggests: testthat,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
