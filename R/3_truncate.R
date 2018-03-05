@@ -14,7 +14,7 @@
 #' @export
 
 ###This takes a while###
-Trunc <- function(L, f, r){for(i in seq_along(fnFs)) {
+trunc <- function(L, f, r){for(i in seq_along(fnFs)) {
 
   if(L > f | L > r){
     stop('Left trim cannot exceed truncate limits.')
