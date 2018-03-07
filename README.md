@@ -16,7 +16,7 @@ the above paragraph.
 of samples up to the number of forward and reverse passes. Output is "i" quality plots for forward and reverse reads.
 
 ## Step 2 - Truncate Forward and Reverse Reads
-***trunc()*** This function has no default values. User must input values for "L", "f", and "r" representing the left trim, length of
+***trnc()*** This function has no default values. User must input values for "L", "f", and "r" representing the left trim, length of
 forward pass reads, and lenght of reverse pass reads respectively. Try L = 10, f = 245, r = 160 using the sample data. This function 
 populates the folder "filtered" with the truncated forward and reverse reads.
 
