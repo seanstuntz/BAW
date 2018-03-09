@@ -4,7 +4,7 @@
 \alias{build_plot}
 \title{Step 1 - Build Quality Plot}
 \usage{
-build_plot(i)
+build_plot(i = 3)
 }
 \arguments{
 \item{i}{is number of reads to be sampled from the available data sets.}
@@ -14,6 +14,6 @@ Forward and Reverse Error Profiles, the mean is in green, the median the
 solid orange line and the quartiles are the dotted orange lines.
 }
 \examples{
-#' build_plot(i = 3)
+build_plot(i = 3)
 
 }

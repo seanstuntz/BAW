@@ -9,12 +9,12 @@
 
 ###Build phylogenetic tree###
 build_phylo_tree <- function(){
-  seqs <<- getSequences(seqtab)
+  seqs <<- dada2::getSequences(seqtab)
   names(seqs) <<- seqs # This propagates to the tip labels of the tree
-  alignment <<- AlignSeqs(DNAStringSet(seqs), anchor=NA)
+  alignment <<- DECIPHER::AlignSeqs(Biostings::DNAStringSet(seqs), anchor=NA)
   phang.align <<- phyDat(as(alignment, "matrix"), type="DNA")
-  dm <<- dist.ml(phang.align)
-  treeNJ <<- NJ(dm) # Note, tip order != sequence order
-  fit = pml(treeNJ, data=phang.align)
+  dm <<- phangorn::dist.ml(phang.align)
+  treeNJ <<- phangorn::NJ(dm) # Note, tip order != sequence order
+  fit <<- phangorn::pml(treeNJ, data=phang.align)
 
 }
