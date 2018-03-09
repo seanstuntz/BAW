@@ -44,6 +44,6 @@ build_plot <- function(i=3){
   ###Pick three passes at random, use same files for forward & backward pass###
   ii <<- sample(length(fnFs), i)
 
-  for(i in ii) { print(dada2::plotQualityProfile(fnFs[i]) + ggtitle("Fwd")) }
-  for(i in ii) { print(dada2::plotQualityProfile(fnRs[i]) + ggtitle("Rev")) }
+  for(i in ii) { print(dada2::plotQualityProfile(fnFs[i]) + ggplot2::ggtitle("Fwd")) }
+  for(i in ii) { print(dada2::plotQualityProfile(fnRs[i]) + ggplot2::ggtitle("Rev")) }
 }

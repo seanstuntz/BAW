@@ -14,13 +14,16 @@
 #' @export
 
 ###This takes a while###
-trunc <- function(L, f, r){for(i in seq_along(fnFs)) {
+trnc <- function(L, f, r){for(i in seq_along(fnFs)) {
 
   if(L > f | L > r){
     stop('Left trim cannot exceed truncate limits.')
   }
 
-  fastqPairedFilter(c(fnFs[[i]], fnRs[[i]]),
+  filtFs <<- file.path(filt_path, basename(fnFs))
+  filtRs <<- file.path(filt_path, basename(fnRs))
+
+  dada2::fastqPairedFilter(c(fnFs[[i]], fnRs[[i]]),
                     c(filtFs[[i]], filtRs[[i]]),
                     trimLeft=L, truncLen=c(f, r),
                     maxN=0, maxEE=2, truncQ=2,

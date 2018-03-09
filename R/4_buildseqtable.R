@@ -11,12 +11,12 @@
 
 sequence_table <- function(){
   ###Construct sequence table and remove chimeras###
-  seqtab.all <<- makeSequenceTable(mergers[!grepl("Mock", names(mergers))])
-  seqtab <<- removeBimeraDenovo(seqtab.all)
+  seqtab.all <<- dada2::makeSequenceTable(mergers[!grepl("Mock", names(mergers))])
+  seqtab <<- dada2::removeBimeraDenovo(seqtab.all)
 
   ###Assign taxonomy###
   ref_fasta <<- "data/rdp_train_set_14.fa.gz"
-  taxtab <<- assignTaxonomy(seqtab, refFasta = ref_fasta)
+  taxtab <<- dada2::assignTaxonomy(seqtab, refFasta = ref_fasta)
   colnames(taxtab) <- c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus")
 
  }
