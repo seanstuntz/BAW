@@ -5,7 +5,19 @@
 #' @export
 
 ###Infer Sequence Variants###
-seqvar <- function(){
+seqvar <- function(x,y){
+
+  if( x > y){
+    stop('First sample number must not be greater than the second sample number')
+  }
+
+  if( x < 1 | y < 1){
+    stop('Select a positive sample number for both x and y')
+  }
+
+  if( y > length(derepFs)){
+    stop('Y sample number must be less or equal to vector length')
+  }
 
   derepFs <<- dada2::derepFastq(filtFs)
   derepRs <<- dada2::derepFastq(filtRs)
@@ -15,8 +27,8 @@ seqvar <- function(){
   names(derepFs) <<- sam.names
   names(derepRs) <<- sam.names
 
-  ddF <<- dada2::dada(derepFs[1:40], err=NULL, selfConsist=TRUE)
-  ddR <<- dada2::dada(derepRs[1:40], err=NULL, selfConsist=TRUE)
+  ddF <<- dada2::dada(derepFs[x:y], err=NULL, selfConsist=TRUE)
+  ddR <<- dada2::dada(derepRs[x:y], err=NULL, selfConsist=TRUE)
 
   dada2::plotErrors(ddF)
   dada2::plotErrors(ddR)
