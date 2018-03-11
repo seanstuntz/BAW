@@ -1,4 +1,4 @@
-BAW
+# BAW
 ## Bioconductor Automated Workflow
 The BAW package consolidates the R code presented in the f1000 research article titled "Bioconductor Workflow for Microbiome Data 
 Analysis". The intention is to step a researcher through the major milestones via a simpler user interface. For instance, 
