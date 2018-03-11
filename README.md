@@ -1,7 +1,7 @@
-# BAW
+#BAW
 ## Bioconductor Automated Workflow
 The BAW package consolidates the R code presented in the f1000 research article titled "Bioconductor Workflow for Microbiome Data 
-Analysis". The intention is to step a researcher throughout the major milestones via a simpler user interface. For instance, 
+Analysis". The intention is to step a researcher through the major milestones via a simpler user interface. For instance, 
 build_plot() samples a user defined number of forward and reverse reads and builds quality plots for each. Instead of the researcher 
 inputing the code directly, simply downloading this package and running the function will provide the desired quality plot output. 
 
