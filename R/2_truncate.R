@@ -8,6 +8,8 @@
 #'
 #' @param r truncate value for reverse reads
 #'
+#' @import dada2
+#'
 #' @examples
 #' Trunc(L = 10, f = 245, r = 160)
 #'

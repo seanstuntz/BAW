@@ -4,6 +4,8 @@
 #' to the others in the table, and removing those that can be reproduced by stitching
 #' together two more abundant sequences.
 #'
+#' @import dada2
+#'
 #'
 #' @export
 

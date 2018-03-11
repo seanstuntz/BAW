@@ -7,7 +7,7 @@
 #'
 #' @examples
 #' build_plot(x = 3)
-#' @import dada2 ggplot2
+#' @import dada2 ggplot2 grDevices
 #'
 #' @export
 
