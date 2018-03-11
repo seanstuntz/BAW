@@ -2,6 +2,8 @@
 #'
 #' @description DADA2 method is used to infer ribosomal sequence variants exactly.
 #'
+#' @import dada2
+#'
 #' @export
 
 ###Infer Sequence Variants###

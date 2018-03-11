@@ -4,12 +4,14 @@
 #' types from a typical amplicon sequencing experiment into a single data object
 #' that can be easily manipulated.
 #'
+#' @import  phyloseq
+#'
 #' @export
 
 ###Build phyloseq object###
 build_phyloseq <- function(){
 
-  ps <<- phyloseq(tax_table(taxtab), sample_data(samdf),
+  ps <<- phyloseq::phyloseq(tax_table(taxtab), sample_data(samdf),
                  otu_table(seqtab, taxa_are_rows = FALSE),phy_tree(fitGTR$tree))
 
 }
