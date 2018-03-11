@@ -28,7 +28,7 @@ Class, Order, Family, and Genus column names.
 ## Step 5 - Build Phylogenetic Tree
 ***build_phylo_tree()*** This function does not take an argument. Output is a phylogenetic tree leveraging the phangorn package.  
 
-## STep 6 - Build Phyloseq Object
+## Step 6 - Build Phyloseq Object
 ***build_phyloseq()*** This function does not take an argument. Output is a consolidated phyloseq object.
 
 ## Citation
