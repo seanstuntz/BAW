@@ -12,7 +12,7 @@ Raw Amplicon reads must be unzipped in "MiSeq_SOP" for build_plot() and other fu
 the above paragraph. 
 
 ## Step 1 - Build Quality Plot
-***build_plot(i)*** The default number of forward and reverse passes is set to 3. This value "i" can be modified based on a desired number of samples up to the number of forward and reverse passes. Output is "i" quality plots for forward and reverse reads. The build_plot() function creates two directories called forward_images and reverse_images. The quality plot outputs are saved in their respective directories.
+***build_plot(x)*** The default number of forward and reverse passes is set to 3. This value "x" can be modified based on a desired number of samples up to the number of forward and reverse passes. Output is "x" quality plots for forward and reverse reads. The build_plot() function creates two directories called forward_images and reverse_images. The quality plot outputs are saved in their respective directories.
 
 ## Step 2 - Truncate Forward and Reverse Reads
 ***trnc(L, f, r)*** This function has no default values. User must input values for "L", "f", and "r" representing the left trim, length of forward pass reads, and lenght of reverse pass reads respectively. Try L = 10, f = 245, r = 160 using the sample data. This function 
