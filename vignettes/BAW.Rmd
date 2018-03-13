@@ -53,24 +53,24 @@ source("https://bioconductor.org/biocLite.R")
 biocLite("GenomeInfoDbData")
 
 ## Step 1 - Build Quality Plot
-***build_plot(x)*** The default number of forward and reverse passes is set to 3. This value "x" can be modified based on a desired number of samples up to the number of forward and reverse passes. Output is "i" quality plots for forward and reverse reads. The build_plot() function creates two directories called forward_images and reverse_images. The quality plot outputs are saved in their respective directories.
+***build_plot(x)*** The default number of forward and reverse passes is set to 3. This value "x" can be modified based on a desired number of samples up to the number of forward and reverse passes. Output is "x" quality plots for forward and reverse reads. The build_plot() function creates two directories called forward_images and reverse_images. The quality plot outputs are saved in their respective directories.
 
 ## Step 2 - Truncate Forward and Reverse Reads
 ***trnc(L, f, r)*** This function has no default values. User must input values for "L", "f", and "r" representing the left trim, length of forward pass reads, and lenght of reverse pass reads respectively. Try L = 10, f = 245, r = 160 using the sample data. This function 
-populates the folder "filtered" with the truncated forward and reverse reads.
+populates the folder "filtered" with the truncated forward and reverse reads. The "filtered" folder was created along with the image folders in Step 1.
 
 ## Step 3 - Infer Sequence Variants
-***seqvar(x, y)*** User inputs the number of samples desired for inferring sequence variants. No default values. x is the starting sample number. y is the ending sample number. Each must be greater than 1. x must not be less than y. y must be less than the length of the forward pass vector of title strings. Errors for the forward and reverse reads are plotted. 
+***seqvar(x, y)*** User inputs the number of samples desired for inferring sequence variants. No default values. x is the starting sample number. y is the ending sample number. Each must be greater than 1. x must not be less than y. y must be less than the length of the forward pass vector of title strings. Errors for the forward and reverse reads are plotted. BE ADVISED: This step takes a long time.
 
 ## Step 4 - Build Sequence Table
 ***sequence_table()*** This function does not take an argument. The output of the function is a sequnce table with Kingdom, Phylum, 
-Class, Order, Family, and Genus column names.
+Class, Order, Family, and Genus column names. Requires a genomic reference file which is included in the downloaded package. Be sure to assign this to the "data" folder in your working directory. This file is included in GitHub at seanstuntz/BAW/data/rdp_train_set_14.fa.gz. 
 
 ## Step 5 - Build Phylogenetic Tree
-***build_phylo_tree()*** This function does not take an argument. Output is a phylogenetic tree leveraging the phangorn package.  
+***build_phylo_tree()*** This function does not take an argument. Output is a phylogenetic tree object leveraging the phangorn package.  
 
-## STep 6 - Build Phyloseq Object
-***build_phyloseq()*** This function does not take an argument. Output is a consolidated phyloseq object.
+## Step 6 - Build Phyloseq Object
+***build_phyloseq()*** This function does not take an argument. Output is a consolidated phyloseq object which combines the sequence table, phylogenetic tree and taxonomy table.
 
 ## Citation
 Callahan BJ, Sankaran K, Fukuyama JA et al. Bioconductor Workflow for Microbiome Data Analysis: from raw reads to community 
