@@ -8,7 +8,7 @@ inputing the code directly, simply downloading this package and running the func
 ***Important Note*** User must first define a "data" folder in their working directory which contains the files "MiSeq_SOP" and "filtered." Raw Amplicon reads must be unzipped in "MiSeq_SOP" for build_plot() and other functions to work. 
 
 ***First Time Users*** After downloading the data included with the package, copy and paste into the "MiSeq_SOP" folder you created in 
-the above paragraph. 
+the above paragraph. Please install using devtools::install_github(build_vignettes = TRUE).
 
 ## Step 1 - Build Quality Plot
 ***build_plot(x)*** The default number of forward and reverse passes is set to 3. This value "x" can be modified based on a desired number of samples up to the number of forward and reverse passes. Output is "x" quality plots for forward and reverse reads. The build_plot() function creates two directories called forward_images and reverse_images. The quality plot outputs are saved in their respective directories.
