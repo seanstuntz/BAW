@@ -30,25 +30,35 @@ the above paragraph.
 ## Packages
 
 library("knitr")
+
 library("ggplot2")
+
 library("gridExtra")
 
 source("https://bioconductor.org/biocLite.R")
 biocLite("BiocStyle")
+
 source("https://bioconductor.org/biocLite.R")
 biocLite("ShortRead")
+
 source("https://bioconductor.org/biocLite.R")
 biocLite("Biostrings")
+
 source("https://bioconductor.org/biocLite.R")
 biocLite("RcppParallel")
+
 source("https://bioconductor.org/biocLite.R")
 biocLite("reshape2")
+
 source("https://bioconductor.org/biocLite.R")
 biocLite("dada2")
+
 source("https://bioconductor.org/biocLite.R")
 biocLite("phyloseq")
+
 source("https://bioconductor.org/biocLite.R")
 biocLite("DECIPHER")
+
 source("https://bioconductor.org/biocLite.R")
 biocLite("GenomeInfoDbData")
 
