@@ -11,7 +11,6 @@
 ###Build phyloseq object###
 build_phyloseq <- function(){
 
-  ps <<- phyloseq::phyloseq(tax_table(taxtab), sample_data(samdf),
-                 otu_table(seqtab, taxa_are_rows = FALSE),phy_tree(fitGTR$tree))
+  ps <<- phyloseq::phyloseq(tax_table(taxtab), otu_table(seqtab, taxa_are_rows = FALSE),phy_tree(fitGTR$tree))
 
 }

@@ -27,8 +27,8 @@ build_plot <- function(x=3){
   ###Identify file paths to unzipped data###
   miseq_path <<- file.path("data", "MiSeq_SOP")
   filt_path <<- file.path("data", "filtered")
-  fwd_path <<- file.path("data", "forward_images")
-  rvs_path <<- file.path("data", "reverse_images")
+  fwd_path <- file.path("data", "forward_images")
+  rvs_path <- file.path("data", "reverse_images")
 
   if(!file_test("-d", miseq_path)) {
     dir.create(miseq_path)}
@@ -43,7 +43,7 @@ build_plot <- function(x=3){
     dir.create(rvs_path)}
 
   ###Sort unzipped files at the directory, by name###
-  fns <<- sort(list.files(miseq_path, full.names = TRUE))
+  fns <- sort(list.files(miseq_path, full.names = TRUE))
 
   ###Create a vector for both forward passes and backward passes###
   fnFs <<- fns[grepl("R1", fns)]

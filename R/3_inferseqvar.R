@@ -4,6 +4,8 @@
 #'
 #' @import dada2
 #'
+#' @example seqvar(x = 1, y = 10)
+#'
 #' @export
 
 ###Infer Sequence Variants###
@@ -17,7 +19,7 @@ seqvar <- function(x,y){
     stop('Select a positive sample number for both x and y')
   }
 
-  if( y > length(derepFs)){
+  if( y > length(filtFs)){
     stop('Y sample number must be less or equal to vector length')
   }
 

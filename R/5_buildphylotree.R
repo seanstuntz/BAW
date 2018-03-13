@@ -12,10 +12,13 @@
 build_phylo_tree <- function(){
   seqs <<- dada2::getSequences(seqtab)
   names(seqs) <<- seqs # This propagates to the tip labels of the tree
-  alignment <<- DECIPHER::AlignSeqs(Biostings::DNAStringSet(seqs), anchor=NA)
+  alignment <<- DECIPHER::AlignSeqs(Biostrings::DNAStringSet(seqs), anchor=NA)
   phang.align <<- phangorn::phyDat(as(alignment, "matrix"), type="DNA")
   dm <<- phangorn::dist.ml(phang.align)
   treeNJ <<- phangorn::NJ(dm) # Note, tip order != sequence order
   fit <<- phangorn::pml(treeNJ, data=phang.align)
+  fitGTR <- update(fit, k=4, inv=0.2)
+  fitGTR <<- phangorn::optim.pml(fitGTR, model="GTR", optInv=TRUE, optGamma=TRUE,
+                      rearrangement = "stochastic", control = phangorn::pml.control(trace = 0))
 
 }
