@@ -79,16 +79,24 @@ seqvar(x = 1, y = 3)
 
 ## Step 4 - Build Sequence Table
 ```{r}
-sequence_table()
+sequence_table(ref_fasta = file.choose())
 ```
-This function does not take an argument. The output of the function is a sequnce table with Kingdom, Phylum,
-Class, Order, Family, and Genus column names. Requires a genomic reference file which is included in the downloaded package. Be sure to assign this to the "data" folder in your working directory. This file is included in GitHub at seanstuntz/BAW/data/rdp_train_set_14.fa.gz. 
+This function requires the user to select a reference file needed to assign genomic data. The output of the function is a sequnce table with Kingdom, Phylum, Class, Order, Family, and Genus column names. The required genomic reference file which is included in the downloaded package at seanstuntz/BAW/data/rdp_train_set_14.fa.gz. First time users should execute the following:
+```{r}
+sequence_table(ref_fasta = file.choose())
+```
 
 ## Step 5 - Build Phylogenetic Tree
-***build_phylo_tree()*** This function does not take an argument. Output is a phylogenetic tree object leveraging the phangorn package.  
+```{r}
+build_phylo_tree()
+```
+This function does not take an argument. Output is a phylogenetic tree object leveraging the phangorn package.  
 
 ## Step 6 - Build Phyloseq Object
-***build_phyloseq()*** This function does not take an argument. Output is a consolidated phyloseq object which combines the sequence table, phylogenetic tree and taxonomy table.
+```{r}
+build_phyloseq()
+```
+This function does not take an argument. Output is a consolidated phyloseq object which combines the sequence table, phylogenetic tree and taxonomy table.
 
 ## Citation
 Callahan BJ, Sankaran K, Fukuyama JA et al. Bioconductor Workflow for Microbiome Data Analysis: from raw reads to community 
