@@ -1,4 +1,4 @@
-oc# BAW
+# BAW
 ## Bioconductor Automated Workflow
 The BAW package consolidates the R code presented in the f1000 research article titled "Bioconductor Workflow for Microbiome Data 
 Analysis". The intention is to step a researcher through the major milestones via a simpler user interface. For instance, 
@@ -50,7 +50,14 @@ biocLite("GenomeInfoDbData")
 ```
 
 ## Step 1 - Build Quality Plot
-***build_plot(x)*** The default number of forward and reverse passes is set to 3. This value "x" can be modified based on a desired number of samples up to the number of forward and reverse passes. Output is "x" quality plots for forward and reverse reads. The build_plot() function creates two directories called forward_images and reverse_images. The quality plot outputs are saved in their respective directories.
+```{r}
+build_plot(dir, case = NULL, full = T)
+```
+As stated previously, users are required to set a directory. This is most easily done by setting dir = dirname(file.choose()). When the function is executed, the user will need to select a file within the directory containing the fastq.gz data files. User must also specify a length of reads to be sampled when developing the quality plots. First time users using the sample data files should run the following
+```{r}
+build_plot(dir = dirname(file.choose()), case = 1:3, full = T)
+``` 
+Output is length(c(cases)) number of quality plots for forward and reverse reads. The build_plot() function also creates two directories in the current working directory called forward_images and reverse_images. The quality plot outputs are saved in their respective directories.
 
 ## Step 2 - Truncate Forward and Reverse Reads
 ***trnc(L, f, r)*** This function has no default values. User must input values for "L", "f", and "r" representing the left trim, length of forward pass reads, and lenght of reverse pass reads respectively. Try L = 10, f = 245, r = 160 using the sample data. This function 
