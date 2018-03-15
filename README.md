@@ -53,21 +53,35 @@ biocLite("GenomeInfoDbData")
 ```{r}
 build_plot(dir, case = NULL, full = T)
 ```
-As stated previously, users are required to identify the directory containing fastq.gz raw amplicon reads. This is most easily done by setting dir = dirname(file.choose()). When the function is executed, the user will need to select a file within the directory containing the fastq.gz data files. User must also specify a length of reads to be sampled when developing the quality plots. First time users using the sample data files should run the following
+As stated previously, users are required to identify the directory containing fastq.gz raw amplicon reads. This is most easily done by setting dir = dirname(file.choose()). When the function is executed, the user will need to select a file within the directory containing the fastq.gz data files. User must also specify a length of reads to be sampled when developing the quality plots. First time users using the sample data files should run the following:
 ```{r}
 build_plot(dir = dirname(file.choose()), case = 1:3, full = T)
 ``` 
 Output is length(cases) number of quality plots for forward and reverse reads. The build_plot() function also creates two directories in the current working directory called forward_images and reverse_images. The quality plot outputs are saved in their respective directories.
 
 ## Step 2 - Truncate Forward and Reverse Reads
-***trnc(L, f, r)*** This function has no default values. User must input values for "L", "f", and "r" representing the left trim, length of forward pass reads, and lenght of reverse pass reads respectively. Try L = 10, f = 245, r = 160 using the sample data. This function 
-populates the folder "filtered" with the truncated forward and reverse reads. The "filtered" folder was created along with the image folders in Step 1.
+```{r}
+trnc(L = NULL, f = NULL, r = NULL)
+```
+This function has no default values. User must input values for "L", "f", and "r" representing the left trim, length of forward pass reads, and lenght of reverse pass reads respectively. This function populates the folder "filtered" with the truncated forward and reverse reads. The "filtered" folder was created along with the image folders in Step 1. First time users using the sample data files should run the following:
+```{r}
+trnc(L = 10, f = 245, r = 160)
+```
 
 ## Step 3 - Infer Sequence Variants
-***seqvar(x, y)*** User inputs the number of samples desired for inferring sequence variants. No default values. x is the starting sample number. y is the ending sample number. Each must be greater than 1. x must not be less than y. y must be less than the length of the forward pass vector of title strings. Errors for the forward and reverse reads are plotted. BE ADVISED: This step takes a long time.
+```{r}
+seqvar(x = NULL, y = NULL)
+```
+User inputs the number of samples desired for inferring sequence variants. No default values. x is the starting sample number. y is the ending sample number. Each must be greater than 1. x must not be less than y. y must be less than the length of the forward pass vector of title strings. Errors for the forward and reverse reads are plotted. BE ADVISED: This step takes a long time. First time users using the sample data files should run the following:
+```{r}
+seqvar(x = 1, y = 3)
+```
 
 ## Step 4 - Build Sequence Table
-***sequence_table()*** This function does not take an argument. The output of the function is a sequnce table with Kingdom, Phylum, 
+```{r}
+sequence_table()
+```
+This function does not take an argument. The output of the function is a sequnce table with Kingdom, Phylum,
 Class, Order, Family, and Genus column names. Requires a genomic reference file which is included in the downloaded package. Be sure to assign this to the "data" folder in your working directory. This file is included in GitHub at seanstuntz/BAW/data/rdp_train_set_14.fa.gz. 
 
 ## Step 5 - Build Phylogenetic Tree
