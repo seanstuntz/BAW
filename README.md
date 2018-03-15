@@ -57,7 +57,7 @@ As stated previously, users are required to set a directory. This is most easily
 ```{r}
 build_plot(dir = dirname(file.choose()), case = 1:3, full = T)
 ``` 
-Output is length(c(cases)) number of quality plots for forward and reverse reads. The build_plot() function also creates two directories in the current working directory called forward_images and reverse_images. The quality plot outputs are saved in their respective directories.
+Output is length(cases) number of quality plots for forward and reverse reads. The build_plot() function also creates two directories in the current working directory called forward_images and reverse_images. The quality plot outputs are saved in their respective directories.
 
 ## Step 2 - Truncate Forward and Reverse Reads
 ***trnc(L, f, r)*** This function has no default values. User must input values for "L", "f", and "r" representing the left trim, length of forward pass reads, and lenght of reverse pass reads respectively. Try L = 10, f = 245, r = 160 using the sample data. This function 
