@@ -1,0 +1,68 @@
+---
+title: "Feedback"
+author: "Matthew Small"
+date: "March 13, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Initial Feedback
+I cannot find the initial proposal nor any initial feedback from Maj Freels on the project.  Therefore, I am not able to assess the project against its original intended metrics.  
+
+There seems like a substantial amount of data just hanging out on the package and significantly delays the time it takes to install from github.  This is definitely frustrating and seems unnecessary from a user perspective.
+
+#Errors Encountered
+##Installing from devtools line
+`devtools::install_github("seanstuntz/BAW")`
+
+It spins for 10-15 minutes trying to download everything that is posted onto github before spitting out the following error:
+> Downloading GitHub repo seanstuntz/BAW@master
+> from URL https://api.github.com/repos/seanstuntz/BAW/zipball/master
+> ERROR: dependencies 'dada2', 'DECIPHER' are not available for package 'BAW'
+> * removing 'E:/Documents/R/win-library/3.4/BAW'
+> Installation failed: Command failed (1)
+
+`devtools::install_github("seanstuntz/BAW", build_vignettes=TRUE)`
+
+This takes an inordinately long time to perform. It resulted in the following error:
+> ERROR: dependencies 'dada2', 'DECIPHER' are not available for package 'BAW'
+> * removing 'C:/Users/MATTHE~1/AppData/Local/Temp/RtmpEJ7QE7/Rinst3cb4172a6e50/B> AW'
+>       -----------------------------------
+> ERROR: package installation failed
+
+Tried to troubleshoot with:
+`install.packages("dada2")` resulted in the following error...
+
+> Installing package into ‘E:/Documents/R/win-library/3.4’
+> (as ‘lib’ is unspecified)
+> Warning in install.packages :
+>   package ‘dada2’ is not available (for R version 3.4.1)
+  
+`install.packages("DECIPHER")` resulted in the following error...
+
+> Installing package into ‘E:/Documents/R/win-library/3.4’
+> (as ‘lib’ is unspecified)
+> Warning in install.packages :
+>   package ‘DECIPHER’ is not available (for R version 3.4.1)
+
+
+##Build/Check
+The package does not build correctly for me in RStudio.  Several lines of code in the RBuildignore do not appear to be loaded allowing for cross compatibility across different operating systems.
+
+> ERROR: dependencies 'dada2', 'DECIPHER' are not available for package 'BAW'
+> * removing 'C:/Users/MATTHE~1/AppData/Local/Temp/Rtmp4qYbUw/Rinst1b381c1816ad/B> AW'
+>       -----------------------------------
+> ERROR: package installation failed
+> Warning: running command '"C:/PROGRA~1/R/R-34~1.1/bin/x64/Rcmd.exe" INSTALL -l > "C:\Users\MATTHE~1\AppData\Local\Temp\Rtmp4qYbUw\Rinst1b381c1816ad" --no-multiarch "C:/Users/Matthew Small/AppData/Local/Temp/Rtmp4qYbUw/Rbuild1b3845695239/BAW"' had status 1
+> Error: Command failed (1)
+
+#Documentation
+There is not sufficient documentation to complete the feedback.
+The lack of example functions is likely a detriment to the package.
+
+
+#Overall
+35/50.  Please make the package work so that I may improve my assessment.
