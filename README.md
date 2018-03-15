@@ -10,6 +10,41 @@ inputing the code directly, simply downloading this package and running the func
 ***First Time Users*** After downloading the data included with the package, copy and paste into the "MiSeq_SOP" folder you created in 
 the above paragraph. Please install using devtools::install_github(build_vignettes = TRUE).
 
+## Packages
+
+library("knitr")
+
+library("ggplot2")
+
+library("gridExtra")
+
+source("https://bioconductor.org/biocLite.R")
+biocLite("BiocStyle")
+
+source("https://bioconductor.org/biocLite.R")
+biocLite("ShortRead")
+
+source("https://bioconductor.org/biocLite.R")
+biocLite("Biostrings")
+
+source("https://bioconductor.org/biocLite.R")
+biocLite("RcppParallel")
+
+source("https://bioconductor.org/biocLite.R")
+biocLite("reshape2")
+
+source("https://bioconductor.org/biocLite.R")
+biocLite("dada2")
+
+source("https://bioconductor.org/biocLite.R")
+biocLite("phyloseq")
+
+source("https://bioconductor.org/biocLite.R")
+biocLite("DECIPHER")
+
+source("https://bioconductor.org/biocLite.R")
+biocLite("GenomeInfoDbData")
+
 ## Step 1 - Build Quality Plot
 ***build_plot(x)*** The default number of forward and reverse passes is set to 3. This value "x" can be modified based on a desired number of samples up to the number of forward and reverse passes. Output is "x" quality plots for forward and reverse reads. The build_plot() function creates two directories called forward_images and reverse_images. The quality plot outputs are saved in their respective directories.
 
