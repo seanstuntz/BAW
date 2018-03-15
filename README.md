@@ -1,17 +1,20 @@
-# BAW
+oc# BAW
 ## Bioconductor Automated Workflow
 The BAW package consolidates the R code presented in the f1000 research article titled "Bioconductor Workflow for Microbiome Data 
 Analysis". The intention is to step a researcher through the major milestones via a simpler user interface. For instance, 
 build_plot() samples a user defined number of forward and reverse reads and builds quality plots for each. Instead of the researcher 
 inputing the code directly, simply downloading this package and running the function will provide the desired quality plot output. 
 
-***Important Note*** User must first define a "data" folder in their working directory which contains the files "MiSeq_SOP" and "filtered." Raw Amplicon reads must be unzipped in "MiSeq_SOP" for build_plot() and other functions to work. 
-
-***First Time Users*** After downloading the data included with the package, copy and paste into the "MiSeq_SOP" folder you created in 
-the above paragraph. Please install using devtools::install_github(build_vignettes = TRUE).
+***Important Note*** User must first create a directory which contains fastq.gz raw Amplicon data  files.  the data files contained in the BAW package can be used for testing. Upon downloading the package, verify the fastq.gz data files were successfully installed. The first function reqiures the user to specify a directory to these amplicon files. perform this by setting the variable
+dir = dirname(file.choose()). Upon executing the build_plot function, you'll then be prompted to select a file within the appropriate directory. The data contained in the BAW package consists of 20 forward and backward pass reads of the 16s gene.  Please install using devtools::install_github(build_vignettes = TRUE).
 
 ## Packages
-
+The packages you'll need are enumerated below. User's should call the following code to download the bioconductor packages. 
+```{r}
+source("https://bioconductor.org/biocLite.R") 
+biocLite("<package_name>")
+```
+```{r}
 library("knitr")
 
 library("ggplot2")
@@ -44,6 +47,7 @@ biocLite("DECIPHER")
 
 source("https://bioconductor.org/biocLite.R")
 biocLite("GenomeInfoDbData")
+```
 
 ## Step 1 - Build Quality Plot
 ***build_plot(x)*** The default number of forward and reverse passes is set to 3. This value "x" can be modified based on a desired number of samples up to the number of forward and reverse passes. Output is "x" quality plots for forward and reverse reads. The build_plot() function creates two directories called forward_images and reverse_images. The quality plot outputs are saved in their respective directories.
