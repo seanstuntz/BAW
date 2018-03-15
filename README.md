@@ -53,7 +53,7 @@ biocLite("GenomeInfoDbData")
 ```{r}
 build_plot(dir, case = NULL, full = T)
 ```
-As stated previously, users are required to set a directory. This is most easily done by setting dir = dirname(file.choose()). When the function is executed, the user will need to select a file within the directory containing the fastq.gz data files. User must also specify a length of reads to be sampled when developing the quality plots. First time users using the sample data files should run the following
+As stated previously, users are required to identify the directory containing fastq.gz raw amplicon reads. This is most easily done by setting dir = dirname(file.choose()). When the function is executed, the user will need to select a file within the directory containing the fastq.gz data files. User must also specify a length of reads to be sampled when developing the quality plots. First time users using the sample data files should run the following
 ```{r}
 build_plot(dir = dirname(file.choose()), case = 1:3, full = T)
 ``` 
