@@ -4,15 +4,20 @@
 \alias{build_plot}
 \title{Step 1 - Build Quality Plot}
 \usage{
-build_plot(x = 3)
+build_plot(dir, cases = NULL, full = T)
 }
 \arguments{
-\item{x}{is number of reads to be sampled from the available data sets.}
+\item{dir}{is the directory of raw amplicon reads}
+
+\item{cases}{is a vector of numbers indicating the selected reads to be used when building the quality plot}
+
+\item{full}{true or false vector of whether or not to use the full file name when selecting reads. Default is T}
 }
 \description{
 Forward and Reverse Error Profiles, the mean is in green, the median the
 solid orange line and the quartiles are the dotted orange lines.
 }
 \examples{
-build_plot(x = 3)
+build_plot(dir = dirname(file.choose()), cases = 1:3, full = T)
+
 }
