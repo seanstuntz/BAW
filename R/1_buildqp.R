@@ -35,6 +35,7 @@ build_plot <- function(dir , cases = NULL, full = T){
   base <- gsub('_R1_001', '', base)
   base <- gsub('_R2_001', '', base)
   base <- gsub('.fastq.gz', '', base)
+
   unq_base <- unique(base)
 
   if(is.null(cases)) {
