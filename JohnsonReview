@@ -1,0 +1,24 @@
+I had an issue downnloading the package and I'm not sure if it's on my end or not. This was the error I recieved (after about 30-min - 1hr 
+of download time):
+> devtools::install_github("seanstuntz/BAW", build_vignettes = TRUE)
+Downloading GitHub repo seanstuntz/BAW@master
+from URL https://api.github.com/repos/seanstuntz/BAW/zipball/master
+Installation failed: Failed writing body (0 != 824)
+
+Accuracy
+I was only able to examine the code of this package. I looked through the functions and everything appears very clean and well documented.
+The code is straightforward and well-written, so I would assume it's accurate and works as designed.
+I can certainly see where the function's results come from and how they're obtained.
+
+Compilation
+As discussed, my pc was unable to download the package successfully. I'm not sure why - maybe something to do with the size? I did as 
+instructed in the readme and created a "data" folder first in my directory.
+
+Ease of Use
+The readme / documentation make it extremely clear how to use and apply this package. The steps were laid out nicely and clearly so as to 
+allow the user a solid guideline for making use of BAW. I was impressed with how well steps 1-6 were written, and I can see how this 
+package (provided it can be downloaded successfully) would be an understandable but very informative tool for the user.
+
+Overall, given my limited ability to test the package but how well described and laid out the package code & documentation are, I would give
+this project a 48/50. Especially if the download issue is on my end, then I suggest this project recieve full points as it's clear a lot of
+hard work and focus was put into making this package informative and simple-to-use.
