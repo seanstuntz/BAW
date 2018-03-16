@@ -22,6 +22,9 @@ library("ggplot2")
 library("gridExtra")
 
 source("https://bioconductor.org/biocLite.R")
+biocLite("phangorn")
+
+source("https://bioconductor.org/biocLite.R")
 biocLite("BiocStyle")
 
 source("https://bioconductor.org/biocLite.R")
