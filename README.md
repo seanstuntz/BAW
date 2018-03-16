@@ -5,11 +5,11 @@ Analysis". The intention is to step a researcher through the major milestones vi
 build_plot() samples a user defined number of forward and reverse reads and builds quality plots for each. Instead of the researcher 
 inputing the code directly, simply downloading this package and running the function will provide the desired quality plot output. 
 
-***Important Note*** User must first create a directory which contains fastq.gz raw Amplicon data  files.  the data files contained in the BAW package can be used for testing. Upon downloading the package, verify the fastq.gz data files were successfully installed. The first function reqiures the user to specify a directory to these amplicon files. perform this by setting the variable
+***Important Note*** User must first create a directory which contains fastq.gz raw Amplicon data  files.  The data files contained in the BAW package can be used for testing. Upon downloading the package, verify the fastq.gz data files were successfully installed. The first function reqiures the user to specify a directory to these amplicon files. Perform this by setting the variable
 dir = dirname(file.choose()). Upon executing the build_plot function, you'll then be prompted to select a file within the appropriate directory. The data contained in the BAW package consists of 20 forward and backward pass reads of the 16s gene.  Please install using devtools::install_github(build_vignettes = TRUE).
 
 ## Packages
-The packages you'll need are enumerated below. User's should call the following code to download the bioconductor packages. 
+The packages you'll need are enumerated below. Users should call the following code to download the bioconductor packages. 
 ```{r}
 source("https://bioconductor.org/biocLite.R") 
 biocLite("<package_name>")
