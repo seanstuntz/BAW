@@ -82,7 +82,7 @@ seqvar(x = 1, y = 3)
 
 ## Step 4 - Build Sequence Table
 ```{r}
-sequence_table(ref_fasta = file.choose())
+sequence_table(ref_fasta)
 ```
 This function requires the user to select a reference file needed to assign genomic data. The output of the function is a sequnce table with Kingdom, Phylum, Class, Order, Family, and Genus column names. The required genomic reference file which is included in the downloaded package at seanstuntz/BAW/data/rdp_train_set_14.fa.gz. First time users should execute the following:
 ```{r}
