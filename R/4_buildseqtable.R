@@ -17,7 +17,7 @@ sequence_table <- function(ref_fasta){
   seqtab <<- dada2::removeBimeraDenovo(seqtab.all)
 
   ###Assign taxonomy###
-  taxtab <<- dada2::assignTaxonomy(seqtab, refFasta = ref_fasta)
+  taxtab <<- dada2::assignTaxonomy(seqtab, refFasta = file.path(ref_fasta))
   colnames(taxtab) <- c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus")
 
  }
