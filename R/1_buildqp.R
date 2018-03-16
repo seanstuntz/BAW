@@ -68,7 +68,7 @@ build_plot <- function(dir , cases = NULL, full = T){
   fnFs <<- fns[grepl("R1", fns)]
   fnRs <<- fns[grepl("R2", fns)]
 
-  ###Pick three passes at random, use same files for forward & backward pass###
+  ###Set cases equal to slength variable###
   slength <<- c(cases)
 
 
