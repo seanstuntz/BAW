@@ -4,6 +4,8 @@
 #' to the others in the table, and removing those that can be reproduced by stitching
 #' together two more abundant sequences.
 #'
+#' @param ref_fasta This is the reference file used for assigning genomic data.
+#'
 #' @import dada2
 #'
 #'

@@ -3,10 +3,13 @@
 #' @description Forward and Reverse Error Profiles, the mean is in green, the median the
 #' solid orange line and the quartiles are the dotted orange lines.
 #'
-#' @param x is number of reads to be sampled from the available data sets.
+#' @param dir is the directory of raw amplicon reads
+#' @param cases is a vector of numbers indicating the selected reads to be used when building the quality plot
+#' @param full true or false vector of whether or not to use the full file name when selecting reads. Default is T
 #'
 #' @examples
-#' build_plot(x = 3)
+#' build_plot(dir = dirname(file.choose()), cases = 1:3, full = T)
+#'
 #' @import dada2 ggplot2 grDevices
 #'
 #' @export
