@@ -4,7 +4,10 @@
 \alias{sequence_table}
 \title{Step 4 - Construct Sequence Table and Remove Chimeras}
 \usage{
-sequence_table()
+sequence_table(ref_fasta)
+}
+\arguments{
+\item{ref_fasta}{This is the reference file used for assigning genomic data.}
 }
 \description{
 Chimeric sequences are removed by comparing each inferred sequence

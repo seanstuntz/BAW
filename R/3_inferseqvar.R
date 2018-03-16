@@ -4,7 +4,7 @@
 #'
 #' @import dada2
 #'
-#' @example seqvar(x = 1, y = 10)
+#' @example seqvar(x = 1, y = 3)
 #'
 #' @export
 
