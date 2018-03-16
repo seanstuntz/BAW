@@ -21,19 +21,23 @@ Analysis". The intention is to step a researcher through the major milestones vi
 build_plot() samples a user defined number of forward and reverse reads and builds quality plots for each. Instead of the researcher 
 inputing the code directly, simply downloading this package and running the function will provide the desired quality plot output. 
 
-***Important Note*** User must first define a "data" folder in their working directory which contains the files "MiSeq_SOP" and "filtered."
-Raw Amplicon reads must be unzipped in "MiSeq_SOP" for build_plot() and other functions to work. 
-
-***First Time Users*** After downloading the data included with the package, copy and paste into the "MiSeq_SOP" folder you created in 
-the above paragraph. 
+***Important Note*** User must first create a directory which contains fastq.gz raw Amplicon data  files.  The data files contained in the BAW package can be used for testing. Upon downloading the package, verify the fastq.gz data files were successfully installed. The first function reqiures the user to specify a directory to these amplicon files. Perform this by setting the variable
+dir = dirname(file.choose()). Upon executing the build_plot function, you'll then be prompted to select a file within the appropriate directory. The data contained in the BAW package consists of 20 forward and backward pass reads of the 16s gene.  Please install using devtools::install_github(build_vignettes = TRUE).
 
 ## Packages
-
+The packages you'll need are enumerated below. Users should call the following code to download the bioconductor packages. 
+```
+source("https://bioconductor.org/biocLite.R") 
+biocLite("<package_name>")
+```
+```
 library("knitr")
 
 library("ggplot2")
 
 library("gridExtra")
+source("https://bioconductor.org/biocLite.R")
+biocLite("phangorn")
 
 source("https://bioconductor.org/biocLite.R")
 biocLite("BiocStyle")
@@ -61,28 +65,59 @@ biocLite("DECIPHER")
 
 source("https://bioconductor.org/biocLite.R")
 biocLite("GenomeInfoDbData")
+```
 
 ## Step 1 - Build Quality Plot
-***build_plot(x)*** The default number of forward and reverse passes is set to 3. This value "x" can be modified based on a desired number of samples up to the number of forward and reverse passes. Output is "x" quality plots for forward and reverse reads. The build_plot() function creates two directories called forward_images and reverse_images. The quality plot outputs are saved in their respective directories.
+```
+build_plot(dir, case = NULL, full = T)
+```
+***Important Note*** User must set current working directory to the BAW package upon download. This is a temporary solution to the issue of saving plots. This will be updated in the near future. As stated previously, users are required to identify the directory containing fastq.gz raw amplicon reads. This is most easily done by setting dir = dirname(file.choose()). When the function is executed, the user will need to select a file within the directory containing the fastq.gz data files. User must also specify a length of reads to be sampled when developing the quality plots. First time users using the sample data files should run the following:
+```
+build_plot(dir = dirname(file.choose()), case = 1:3, full = T)
+``` 
+Output is length(cases) number of quality plots for forward and reverse reads. The build_plot() function also creates two directories in the current working directory called forward_images and reverse_images. The quality plot outputs are saved in their respective directories.
 
 ## Step 2 - Truncate Forward and Reverse Reads
-***trnc(L, f, r)*** This function has no default values. User must input values for "L", "f", and "r" representing the left trim, length of forward pass reads, and lenght of reverse pass reads respectively. Try L = 10, f = 245, r = 160 using the sample data. This function 
-populates the folder "filtered" with the truncated forward and reverse reads. The "filtered" folder was created along with the image folders in Step 1.
+```
+trnc(L = NULL, f = NULL, r = NULL)
+```
+This function has no default values. User must input values for "L", "f", and "r" representing the left trim, length of forward pass reads, and lenght of reverse pass reads respectively. This function populates the folder "filtered" with the truncated forward and reverse reads. The "filtered" folder was created along with the image folders in Step 1. First time users using the sample data files should run the following:
+```
+trnc(L = 10, f = 245, r = 160)
+```
 
 ## Step 3 - Infer Sequence Variants
-***seqvar(x, y)*** User inputs the number of samples desired for inferring sequence variants. No default values. x is the starting sample number. y is the ending sample number. Each must be greater than 1. x must not be less than y. y must be less than the length of the forward pass vector of title strings. Errors for the forward and reverse reads are plotted. BE ADVISED: This step takes a long time.
+```
+seqvar(x = NULL, y = NULL)
+```
+User inputs the number of samples desired for inferring sequence variants. No default values. x is the starting sample number. y is the ending sample number. Each must be greater than 1. x must not be less than y. y must be less than the length of the forward pass vector of title strings. Errors for the forward and reverse reads are plotted. BE ADVISED: This step takes a long time. First time users using the sample data files should run the following:
+```
+seqvar(x = 1, y = 3)
+```
 
 ## Step 4 - Build Sequence Table
-***sequence_table()*** This function does not take an argument. The output of the function is a sequnce table with Kingdom, Phylum, 
-Class, Order, Family, and Genus column names. Requires a genomic reference file which is included in the downloaded package. Be sure to assign this to the "data" folder in your working directory. This file is included in GitHub at seanstuntz/BAW/data/rdp_train_set_14.fa.gz. 
+```
+sequence_table(ref_fasta)
+```
+This function requires the user to select a reference file needed to assign genomic data. The output of the function is a sequnce table with Kingdom, Phylum, Class, Order, Family, and Genus column names. The required genomic reference file which is included in the downloaded package at seanstuntz/BAW/data/rdp_train_set_14.fa.gz. First time users should execute the following:
+```
+sequence_table(ref_fasta = file.choose())
+```
 
 ## Step 5 - Build Phylogenetic Tree
-***build_phylo_tree()*** This function does not take an argument. Output is a phylogenetic tree object leveraging the phangorn package.  
+```
+build_phylo_tree()
+```
+This function does not take an argument. Output is a phylogenetic tree object leveraging the phangorn package.  
 
 ## Step 6 - Build Phyloseq Object
-***build_phyloseq()*** This function does not take an argument. Output is a consolidated phyloseq object which combines the sequence table, phylogenetic tree and taxonomy table.
+```
+build_phyloseq()
+```
+This function does not take an argument. Output is a consolidated phyloseq object which combines the sequence table, phylogenetic tree and taxonomy table.
 
 ## Citation
 Callahan BJ, Sankaran K, Fukuyama JA et al. Bioconductor Workflow for Microbiome Data Analysis: from raw reads to community 
 analyses [version 2; referees: 3 approved]. F1000Research 2016, 5:1492 (doi: 10.12688/f1000research.8986.2) 
+
 
