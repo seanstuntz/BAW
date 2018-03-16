@@ -12,26 +12,42 @@
 #' @export
 
 
-build_plot <- function(x=3){
+build_plot <- function(dir , cases = NULL, full = T){
 
-  if(!is.numeric(x)) {
+  if(!is.numeric(cases)) {
     stop('i must be an atomic vector')
   }
 
-  if(!is.numeric(x)){
+  if(!is.numeric(cases)){
     stop('This function only works for numeric inputs!\n',
          'You have provided objects of the following classes:\n',
-         'i: ', class(x))
+         'i: ', class(cases))
   }
 
   ###Identify file paths to unzipped data###
-  miseq_path <<- file.path("data", "MiSeq_SOP")
+  files <- dir(dir, full.names = T)
+
+  base <- basename(files)
+
+  base <- gsub('_R1_001', '', base)
+  base <- gsub('_R2_001', '', base)
+  base <- gsub('.fastq.gz', '', base)
+  unq_base <- unique(base)
+
+  if(is.null(cases)) {
+
+    return(unq_base)
+
+  } else {
+
+    case_list <- lapply(X = 1:length(cases),
+                        FUN = function(x) list.files(dir, unq_base[cases[x]], full.names = full))
+
+  }
+
   filt_path <<- file.path("data", "filtered")
   fwd_path <- file.path("data", "forward_images")
   rvs_path <- file.path("data", "reverse_images")
-
-  if(!file_test("-d", miseq_path)) {
-    dir.create(miseq_path)}
 
   if(!file_test("-d", filt_path)) {
     dir.create(filt_path)}
@@ -43,14 +59,14 @@ build_plot <- function(x=3){
     dir.create(rvs_path)}
 
   ###Sort unzipped files at the directory, by name###
-  fns <- sort(list.files(miseq_path, full.names = TRUE))
+  fns <- sort(list.files(dir, full.names = TRUE))
 
   ###Create a vector for both forward passes and backward passes###
   fnFs <<- fns[grepl("R1", fns)]
   fnRs <<- fns[grepl("R2", fns)]
 
   ###Pick three passes at random, use same files for forward & backward pass###
-  slength <<- sample(length(fnFs), x)
+  slength <<- c(cases)
 
 
     for(i in seq_along(slength)) {
@@ -68,7 +84,8 @@ build_plot <- function(x=3){
 
       dev.off()
 
-  }
+    }
+
 }
 
 
